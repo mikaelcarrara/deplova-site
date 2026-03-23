@@ -264,14 +264,7 @@ body {
 <!-- SIDENAV -->
 <nav class="sidenav">
   <span class="sn-lbl">run-pipeline.bat</span>
-  <a class="sn-link active" href="#s0"><span class="sn-n">00</span>capa</a>
-  <a class="sn-link" href="#s1"><span class="sn-n">01</span>pre-flight</a>
-  <a class="sn-link" href="#s2"><span class="sn-n">02</span>sync check</a>
-  <a class="sn-link" href="#s3"><span class="sn-n">03</span>bridge</a>
-  <a class="sn-link" href="#s4"><span class="sn-n">04</span>architect</a>
-  <a class="sn-link" href="#s5"><span class="sn-n">05</span>governança</a>
-  <a class="sn-link" href="#s6"><span class="sn-n">06</span>success</a>
-  <a class="sn-link" href="#s7"><span class="sn-n">07</span>error</a>
+  <div id="sn-links"></div>
 </nav>
 
 <main class="main">
@@ -701,18 +694,49 @@ body {
 </main>
 
 <script>
-const secs  = document.querySelectorAll('.section');
-const links = document.querySelectorAll('.sn-link');
-const obs = new IntersectionObserver(entries => {
-  entries.forEach(e => {
-    if (e.isIntersecting && e.intersectionRatio > .4) {
-      links.forEach(l => l.classList.remove('active'));
-      const a = document.querySelector(`.sn-link[href="#${e.target.id}"]`);
-      if (a) a.classList.add('active');
-    }
+const secs = Array.from(document.querySelectorAll('.section, .hero'));
+const container = document.getElementById('sn-links');
+const items = secs.map((s, i) => {
+  const n = String(i).padStart(2,'0');
+  let label = '';
+  if (s.classList.contains('hero')) { label = 'capa'; }
+  else {
+    const l = s.querySelector('.lbl')?.textContent || '';
+    const dash = l.includes('—') ? l.split('—').pop().trim() : l.trim();
+    const dotParts = dash.split('·');
+    const afterDot = dotParts.length > 1 ? dotParts[dotParts.length-1].trim() : dash;
+    label = afterDot.split('+')[0].trim().toLowerCase() || 'section';
+  }
+  return `<a class="sn-link${i===0?' active':''}" href="#${s.id}"><span class="sn-n">${n}</span>${label}</a>`;
+});
+container.innerHTML = items.join('');
+const links = Array.from(document.querySelectorAll('.sn-link'));
+function pickActive(){
+  const mid = window.innerHeight/2;
+  let best = null, bestDist = Infinity;
+  secs.forEach(s => {
+    const r = s.getBoundingClientRect();
+    const center = r.top + r.height/2;
+    const dist = Math.abs(center - mid);
+    if (r.top <= mid && r.bottom >= mid && dist < bestDist) { best = s; bestDist = dist; }
   });
-}, { threshold: .4 });
+  if (!best) {
+    secs.forEach(s => {
+      const r = s.getBoundingClientRect();
+      const dist = Math.abs(r.top - 80);
+      if (dist < bestDist) { best = s; bestDist = dist; }
+    });
+  }
+  if (best) {
+    links.forEach(l => l.classList.remove('active'));
+    const a = document.querySelector(`.sn-link[href="#${best.id}"]`);
+    if (a) a.classList.add('active');
+  }
+}
+const obs = new IntersectionObserver(() => { pickActive(); }, { threshold: .1 });
 secs.forEach(s => obs.observe(s));
+window.addEventListener('scroll', pickActive, { passive:true });
+pickActive();
 links.forEach(l => l.addEventListener('click', ev => {
   ev.preventDefault();
   document.querySelector(l.getAttribute('href'))?.scrollIntoView({behavior:'smooth'});
