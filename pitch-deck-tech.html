@@ -1359,6 +1359,17 @@
   dots.forEach(d => d.addEventListener('click', () => {
     slides[+d.dataset.slide]?.scrollIntoView({ behavior: 'smooth' });
   }));
+
+  // Corrige imagens dos slides 7 (Priorização) e 8 (Pipeline) caso estejam trocadas
+  (function swapScreenshotImages() {
+    const imgSprint   = document.querySelector('#slide-7 .screenshot-frame img');
+    const imgPipeline = document.querySelector('#slide-8 .screenshot-frame img');
+    if (imgSprint && imgPipeline) {
+      const tmp = imgSprint.src;
+      imgSprint.src = imgPipeline.src;
+      imgPipeline.src = tmp;
+    }
+  })();
 </script>
 
 </body>
