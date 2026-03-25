@@ -15,10 +15,10 @@
   --bg-lift:  #141820;
   --rule:     rgba(255,255,255,.08);
   --rule2:    rgba(255,255,255,.13);
-  --ink:      #f0f2f5;       /* warm off-white, like Garamond on dark */
-  --ink-2:    #8b95a3;       /* body muted */
-  --ink-3:    #4a5568;       /* dimmer */
-  --accent:   #35B0CD;       /* Deplova accent */
+  --ink:      #f0f2f5;
+  --ink-2:    #8b95a3;
+  --ink-3:    #4a5568;
+  --accent:   #35B0CD;
   --accent-dim: rgba(53,176,205,.10);
   --accent-mid: rgba(53,176,205,.22);
   --red-dim:  rgba(255,90,80,.1);
@@ -850,7 +850,7 @@ footer {
         </div>
         <div class="p-body">
           <div class="p-model" style="color:var(--accent);opacity:.7;">briefing → thinker → bridge → architect → governance → coherence → handoff → builder</div>
-          <p class="p-desc">Não é um assistant. Não é um builder. Não é um agente autônomo. É um compilador de intenção com garantias — onde 60 minutos de briefing entram e <code>builder_handoff.json</code> sai como plano de obra verificado. 11 camadas de governança. 6 artefatos canônicos. Cada agent ignora o que o outro fez — separação de preocupações real.</p>
+          <p class="p-desc">Não é um assistant. Não é um builder. Não é um agente autônomo. É um compilador de intenção com garantias — onde 60 minutos de briefing entram e <code>builder_handoff.json</code> sai como plano de obra verificado. 11 camadas de governança. 4 artefatos canônicos. Cada agent ignora o que o outro fez — separação de preocupações real.</p>
         </div>
         <div class="p-scores">
           <div class="sr"><span class="sr-lbl">Contratos</span><div class="sr-track"><div class="sr-fill" style="width:95%;background:var(--accent)"></div></div></div>
@@ -866,7 +866,7 @@ footer {
 
 
 <!-- ══════════ BENCHMARK TABLE ══════════ -->
-<section style="padding-top:0; border-top:none;">
+<section>
   <div class="w">
     <div class="eyebrow">Análise comparativa</div>
     <h2 class="g-title">Benchmark<br><em>matrix.</em></h2>
@@ -897,7 +897,7 @@ footer {
             <td><span class="chip c-no">Não</span></td><td><span class="chip c-no">Não</span></td>
             <td><span class="chip c-no">Não</span></td><td><span class="chip c-part">Fraco</span></td>
             <td><span class="chip c-part">Implícito</span></td>
-            <td class="dep"><span class="chip c-dep">6 artefatos ✓</span></td>
+            <td class="dep"><span class="chip c-dep">4 artefatos ✓</span></td>
           </tr>
           <tr>
             <td>Pipeline multi-stage</td>
@@ -994,133 +994,10 @@ footer {
 </section>
 
 
-<!-- ══════════ PIPELINE ══════════ -->
-<div class="pipe-bg">
-  <div class="w">
-    <div class="eyebrow">Arquitetura interna</div>
-    <h2 class="g-title">Da conversa ao<br><em>builder_handoff.json.</em></h2>
-    <p class="lead">Sete agentes. Seis artefatos JSON. Uma sequência determinística com checkpoints de validação em cada etapa. Isso não é workflow de IA — é compilação de produto.</p>
-
-    <div class="pipe-stages">
-      <div class="ps"><div class="ps-letter">T</div><div class="ps-name">Thinker</div><div class="ps-role">Product Strategist<br>NotebookLM</div></div>
-      <div class="ps"><div class="ps-letter">B</div><div class="ps-name">Bridge</div><div class="ps-role">Security / Constraints<br>bridge.py</div></div>
-      <div class="ps"><div class="ps-letter">A</div><div class="ps-name">Architect</div><div class="ps-role">Tech Lead<br>self-inferred-context.py</div></div>
-      <div class="ps"><div class="ps-letter">G</div><div class="ps-name">Governance</div><div class="ps-role">QA + Compliance<br>governance.py</div></div>
-      <div class="ps"><div class="ps-letter">C</div><div class="ps-name">Coherence</div><div class="ps-role">Infra Engineer<br>check_coherence.py</div></div>
-      <div class="ps"><div class="ps-letter">H</div><div class="ps-name">Handoff</div><div class="ps-role">Build System<br>handoff-compiler.py</div></div>
-      <div class="ps"><div class="ps-letter">X</div><div class="ps-name">Builder</div><div class="ps-role">Dev Executor<br>Claude Code</div></div>
-    </div>
-    <div class="pipe-arts">
-      <div class="pa">thinker_output.json</div>
-      <div class="pa">refined_intent.json</div>
-      <div class="pa">product_definition.json</div>
-      <div class="pa">validated_spec.json</div>
-      <div class="pa">coherence_map.json</div>
-      <div class="pa">compiled_plan.json</div>
-      <div class="pa">builder_handoff.json</div>
-    </div>
-
-    <div class="callout" style="margin-bottom:0;">
-      <strong>Cada artefato JSON é rastreável, auditável e debuggável de forma independente.</strong> Nenhum outro sistema no mercado tem esse nível de separação explícita entre etapas — com contratos verificáveis em cada camada.
-    </div>
-  </div>
-</div>
+ 
 
 
-<!-- ══════════ GOVERNANCE ══════════ -->
-<section>
-  <div class="w">
-    <div class="eyebrow">O que nenhum outro tem</div>
-    <h2 class="g-title">11 camadas.<br><em>10 automáticas.</em></h2>
-    <p class="lead" style="margin-bottom:0;">Enquanto outros confiam na IA para "fazer certo", a Deplova define o que é certo antes, durante e depois da execução.</p>
-
-    <div class="gov-list">
-      <div class="gov-row hum">
-        <div class="gn">01</div>
-        <div class="gname">Sprint Planning</div>
-        <div class="gdesc">Cliente prioriza features em P0/P1/P2 com base em impact score e story points. Só o que o cliente confirmou entra no pipeline. Contrato de sprint assinado antes de qualquer código.</div>
-        <div class="gmode human">Humano</div>
-      </div>
-      <div class="gov-row tech">
-        <div class="gn">02</div>
-        <div class="gname">Sync Check</div>
-        <div class="gdesc">Detecta drift entre skeleton_manifest.json, bridge.py e handoff-compiler.py. Pipeline não avança com contratos desatualizados. Garante que nenhuma etapa roda com versões incompatíveis.</div>
-        <div class="gmode auto">Auto</div>
-      </div>
-      <div class="gov-row tech">
-        <div class="gn">03</div>
-        <div class="gname">Bridge Guard</div>
-        <div class="gdesc">Descarta HEX colors, normaliza archetype, converte is_priority em P0/P1/P2, aplica restrições de infra. Só entra no pipeline o que o skeleton consegue construir. Intenção blindada.</div>
-        <div class="gmode auto">Auto</div>
-      </div>
-      <div class="gov-row biz">
-        <div class="gn">04</div>
-        <div class="gname">Schema Validation</div>
-        <div class="gdesc">product_definition.json validado contra JSON Schema com additionalProperties: false. O Architect não pode inventar campos. Output malformado rejeita o estágio inteiro.</div>
-        <div class="gmode failfast">Fail-Fast</div>
-      </div>
-      <div class="gov-row biz">
-        <div class="gn">05</div>
-        <div class="gname">Structure Guard</div>
-        <div class="gdesc">Anti-hallucination: verifica se o Architect inventou campos não previstos no schema. Camada adicional de validação estrutural além do JSON Schema padrão.</div>
-        <div class="gmode failfast">Fail-Fast</div>
-      </div>
-      <div class="gov-row biz">
-        <div class="gn">06</div>
-        <div class="gname">Identity Check</div>
-        <div class="gdesc">Nome e archetype do produto batem com o intent definido pelo Bridge? Nenhum agent pode mudar a identidade do produto sem invalidar o pipeline.</div>
-        <div class="gmode auto">Auto</div>
-      </div>
-      <div class="gov-row biz">
-        <div class="gn">07</div>
-        <div class="gname">Capabilities Lock</div>
-        <div class="gdesc">Capabilities definidas no Bridge e travadas. O Architect compila — não decide. O Builder executa — não interpreta. Zero scope creep por alucinação.</div>
-        <div class="gmode auto">Auto</div>
-      </div>
-      <div class="gov-row biz">
-        <div class="gn">08</div>
-        <div class="gname">DB Access Guard</div>
-        <div class="gdesc">Restrições de infraestrutura de banco de dados respeitadas? Operações destrutivas bloqueadas. Nenhum migration não planejado avança no pipeline.</div>
-        <div class="gmode auto">Auto</div>
-      </div>
-      <div class="gov-row tech">
-        <div class="gn">09</div>
-        <div class="gname">Skeleton Fit</div>
-        <div class="gdesc">O skeleton físico existe e está íntegro? O código será verificado contra o skeleton de arquitetura. Desvios estruturais capturados antes do build.</div>
-        <div class="gmode auto">Auto</div>
-      </div>
-      <div class="gov-row tech">
-        <div class="gn">10</div>
-        <div class="gname">Capability Support</div>
-        <div class="gdesc">O skeleton suporta as capabilities pedidas? Viabilidade técnica verificada antes do handoff. Nenhuma feature entra no build sem suporte físico.</div>
-        <div class="gmode auto">Auto</div>
-      </div>
-      <div class="gov-row tech">
-        <div class="gn">11</div>
-        <div class="gname">Route Conflict</div>
-        <div class="gdesc">Rotas colidem com protected_zones? Endpoints duplicados detectados antes do build. Classe inteira de bugs de integração eliminada antes de existirem.</div>
-        <div class="gmode auto">Auto</div>
-      </div>
-      <div class="gov-row hum" style="border-left:2px solid rgba(240,185,85,.5); background:rgba(240,185,85,.04);">
-        <div class="gn" style="color:var(--amber-ink);">✓</div>
-        <div class="gname" style="color:var(--amber-ink);">Checkpoint do Operador — Corregedoria</div>
-        <div class="gdesc">Operador revisa blueprint e wireframe de baixa fidelidade. Confirma ou manda regenerar. Pipeline pausa aqui — o Builder não começa sem autorização humana explícita.</div>
-        <div class="gmode human">Humano</div>
-      </div>
-    </div>
-
-    <div class="grid-band" style="grid-template-columns:1fr 1fr; margin-top: 1px;">
-      <div class="grid-cell" style="padding: 22px 20px;">
-        <div class="eyebrow" style="margin-bottom:10px; font-size:9.5px;">Governance — auditor cego</div>
-        <p style="font-size:13px;font-weight:300;color:var(--ink-2);line-height:1.65;">Valida fidelidade ao contrato de negócio — schema, identity, capabilities lock, DB guard. <strong style="color:var(--ink);font-weight:500;">Não sabe que existe skeleton.</strong></p>
-      </div>
-      <div class="grid-cell" style="padding: 22px 20px;">
-        <div class="eyebrow" style="margin-bottom:10px; font-size:9.5px;">Coherence — engenheiro de solo</div>
-        <p style="font-size:13px;font-weight:300;color:var(--ink-2);line-height:1.65;">Valida viabilidade técnica — skeleton fit, capability support, route conflicts. <strong style="color:var(--ink);font-weight:500;">Não sabe de regras de negócio.</strong></p>
-      </div>
-    </div>
-  </div>
-</section>
+ 
 
 
 <!-- ══════════ QUOTE ══════════ -->
