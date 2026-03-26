@@ -49,6 +49,13 @@
 }
 
 .hero__sub {
+  max-width: 740px;
   margin-bottom: var(--space-10);
   margin-top: 0;
+}
+
+@media (max-width: 1024px) {
+  .hero__sub {
+    max-width: auto;
+  }
 }

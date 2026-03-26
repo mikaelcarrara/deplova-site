@@ -1,0 +1,11 @@
+.final-cta {
+  padding: var(--space-24) 0 var(--space-32) 0;
+  background-color: var(--bg-surface);
+  text-align: center;
+}
+
+.final-cta .desc {
+  max-width: 700px;
+  margin: auto;
+  margin-top: var(--space-16);
+}

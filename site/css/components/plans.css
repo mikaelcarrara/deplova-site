@@ -24,6 +24,12 @@
     transform var(--duration-base) var(--ease-out);
 }
 
+.plan-card p {
+  font-size: var(--text-sm);
+  color: var(--text-secondary);
+  text-align: left;
+}
+
 .plan-card:hover {
   border-color: var(--accent);
   transform: translateY(-4px);

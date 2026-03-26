@@ -38,7 +38,7 @@
   width: calc(100% + (var(--space-6) * 2));
 }
 
-#entregaveis .content-card__title {
+#entregaveis h3 {
   margin-top: var(--space-8);
 }
 
