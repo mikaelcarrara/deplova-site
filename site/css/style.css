@@ -11,10 +11,11 @@
 @import url('components/demo-window.css');
 @import url('components/dashboard.css');
 @import url('components/plans.css');
+@import url('components/modal.css');
+@import url('components/form.css');
 @import url('sections/hero.css');
 @import url('components/cta.css');
 @import url('components/final-cta.css');
 @import url('components/icons.css');
 @import url('animations.css');
 @import url('responsive.css');
-@import url('pages/home.css');

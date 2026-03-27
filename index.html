@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Detraxis — Do briefing ao código. Sem improvisos.</title>
   <meta name="description"
-    content="Através de um processo de montagem orientado por blueprint, garantimos que cada linha de código tenha um propósito. Receba um produto funcional, um backlog priorizado e uma base técnica que escala com o seu negócio.">
+    content="Geração determinística de produtos orientada por blueprint.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
@@ -47,7 +47,7 @@
           <img src="site/img/detraxis-logo.svg" alt="Detraxis">
         </a>
         <div class="nav__right">
-          <a href="https://w.app/deplova" class="btn btn--primary btn--sm" aria-label="Começar projeto">
+          <a href="#planos" class="btn btn--primary btn--sm" aria-label="Ver planos">
             <span class="btn__inner">Ver planos
               <span class="btn__arrow" aria-hidden="true">→</span>
             </span>
@@ -70,7 +70,7 @@
           Através de um processo de montagem orientado por blueprint, garantimos que cada linha de código tenha um propósito. Receba um produto funcional, um backlog priorizado e uma base técnica que escala com o seu negócio.
         </p>
         <div class="hero__actions" data-aos="fade-up" data-aos-delay="150">
-          <a href="https://w.app/deplova" class="btn btn--primary" data-aos="fade-up" data-aos-delay="100">
+          <a href="#" class="btn btn--primary" data-aos="fade-up" data-aos-delay="100" data-lead-trigger data-plan="MVP + Base Evolutiva" aria-controls="lead-modal">
             <span class="btn__inner btn__inner--hero">
               <span class="btn__text">
                 <span class="btn__title">Agendar briefing</span>
@@ -103,7 +103,7 @@
                 <p class="timeline-step__time">Etapa 01</p>
                 <h3 class="timeline-step__title">Imersão (Briefing)</h3>
                 <p class="timeline-step__desc">
-                  Uma sessão de 60 minutos para descarregar a visão do produto. Nós ouvimos o seu contexto e os seus gargalos, focando em transformar "vibes" em fatos de engenharia.
+                  Uma sessão de 60 minutos para transformar a visão do produto em algo concreto. Entendemos seu contexto e seus gargalos, convertendo “vibes” em decisões claras.
                 </p>
               </div>
             </li>
@@ -116,7 +116,7 @@
                 <p class="timeline-step__time">Etapa 02</p>
                 <h3 class="timeline-step__title">Priorização ativa (o filtro do cliente)</h3>
                 <p class="timeline-step__desc">
-                  Você define o que vai para o ar. Traduzimos a conversa em uma lista técnica onde você escolhe as funcionalidades críticas (P0) e o que fica para o futuro (P1). Nada entra no código sem a sua batida de martelo no escopo.
+                  Você define o que vai para o ar. Traduzimos a conversa em uma lista clara, onde você prioriza o que é crítico (P0) e o que fica para depois (P1). Nada é implementado sem sua decisão final.
                 </p>
               </div>
             </li>
@@ -155,7 +155,7 @@
                 <p class="timeline-step__time">Etapa 05</p>
                 <h3 class="timeline-step__title">Handoff e autonomia</h3>
                 <p class="timeline-step__desc">
-                  Entrega do código-fonte, documentação e uma base técnica que não vira reescrita. O produto é seu, construído sobre um chassi profissional pronto para escalar com seu time ou novos ciclos de desenvolvimento.
+                  Entrega do código-fonte, documentação e uma base técnica que não vira reescrita. O produto é seu, construído sobre um chassi sólido, pronto para escalar com seu time ou novos ciclos de desenvolvimento.
                 </p>
               </div>
             </li>
@@ -561,7 +561,7 @@
                 <span>Mapa de execução</span>
               </li>
             </ul>
-            <a href="#" class="btn btn--outline btn--sm" aria-label="Contratar plano Discovery">
+            <a href="#" class="btn btn--outline btn--sm" aria-label="Contratar plano Discovery" data-lead-trigger data-plan="Discovery + Blueprint" aria-controls="lead-modal">
               Começar pelo discovery
               <span class="btn__arrow" aria-hidden="true">→</span>
             </a>
@@ -592,7 +592,7 @@
                 <span>30 dias de suporte técnico</span>
               </li>
             </ul>
-            <a href="https://w.app/deplova" class="btn btn--primary btn--sm" aria-label="Iniciar MVP">
+            <a href="#" class="btn btn--primary btn--sm" aria-label="Iniciar MVP" data-lead-trigger data-plan="MVP + Base Evolutiva" aria-controls="lead-modal">
               <span class="btn__inner">Agendar briefing
                 <span class="btn__arrow" aria-hidden="true">→</span>
               </span>
@@ -624,7 +624,7 @@
                 <span>Governança e revisão técnica</span>
               </li>
             </ul>
-            <a href="https://w.app/deplova" class="btn btn--outline btn--sm" aria-label="Contratar Projeto Continuado">
+            <a href="#" class="btn btn--outline btn--sm" aria-label="Contratar Projeto Continuado" data-lead-trigger data-plan="Sprint - Projeto Continuado" aria-controls="lead-modal">
               Agendar continuidade
               <span class="btn__arrow" aria-hidden="true">→</span>
             </a>
@@ -649,7 +649,7 @@
             </p>
           </div>
 
-          <a href="https://w.app/deplova" class="btn btn--primary" data-aos="fade-up" data-aos-delay="100">
+          <a href="#" class="btn btn--primary" data-aos="fade-up" data-aos-delay="100" data-lead-trigger data-plan="Discovery + Blueprint" aria-controls="lead-modal">
             <span class="btn__inner btn__inner--hero">
               <span class="btn__text">
                 <span class="btn__title">Agendar briefing</span>
@@ -661,6 +661,55 @@
       </div>
     </section>
 
+    <div class="modal" id="lead-modal" aria-hidden="true">
+      <div class="modal__overlay" data-modal-close></div>
+      <div class="modal__dialog" role="dialog" aria-modal="true" aria-labelledby="lead-modal-title">
+        <button class="modal__close" type="button" aria-label="Fechar modal" data-modal-close>×</button>
+        <form class="form" id="lead-form" data-submit-endpoint="https://formspree.io/f/SEU_FORM_ID" novalidate>
+          <div class="form__header">
+            <h2 class="form__title" id="lead-modal-title">Agende seu briefing</h2>
+            <p class="form__subtitle">Preencha os dados e retornamos com o próximo passo para o plano ideal.</p>
+          </div>
+          <div class="form__group">
+            <label class="form__label" for="lead-name">Nome</label>
+            <input class="form__input" id="lead-name" name="name" type="text" autocomplete="name" required>
+          </div>
+          <div class="form__group">
+            <label class="form__label" for="lead-email">E-mail</label>
+            <input class="form__input" id="lead-email" name="email" type="email" autocomplete="email" required>
+          </div>
+          <div class="form__group">
+            <span class="form__label">Selecione o plano</span>
+            <div class="form__plans" role="radiogroup" aria-label="Planos disponíveis">
+              <label class="selectable-card" data-plan-card data-plan-value="Discovery + Blueprint">
+                <input type="radio" name="plan" value="Discovery + Blueprint" required>
+                <span class="selectable-card__name">Discovery + Blueprint</span>
+                <span class="selectable-card__price">R$ 1.499</span>
+                <span class="selectable-card__description">Mapeamento, backlog priorizado e blueprint pronto para execução.</span>
+              </label>
+              <label class="selectable-card" data-plan-card data-plan-value="MVP + Base Evolutiva">
+                <input type="radio" name="plan" value="MVP + Base Evolutiva" required>
+                <span class="selectable-card__name">MVP + Base Evolutiva</span>
+                <span class="selectable-card__price">R$ 4.999</span>
+                <span class="selectable-card__description">Build completo, base escalável e produto no ar.</span>
+              </label>
+              <label class="selectable-card" data-plan-card data-plan-value="Sprint - Projeto Continuado">
+                <input type="radio" name="plan" value="Sprint - Projeto Continuado" required>
+                <span class="selectable-card__name">Sprint - Projeto Continuado</span>
+                <span class="selectable-card__price">R$ 2.999</span>
+                <span class="selectable-card__description">Evolução contínua com roadmap priorizado e revisão técnica.</span>
+              </label>
+            </div>
+          </div>
+          <div class="form__actions">
+            <button class="btn btn--primary form__submit" type="submit">
+              <span class="btn__inner">Enviar</span>
+            </button>
+          </div>
+          <p class="form__status" id="lead-form-status" role="status" aria-live="polite"></p>
+        </form>
+      </div>
+    </div>
   </main>
 
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
@@ -673,6 +722,7 @@
     });
   </script>
   <script src="site/js/hero.js"></script>
+  <script src="site/js/form.js"></script>
 
 </body>
 
