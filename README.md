@@ -96,8 +96,7 @@ No diretório raiz:
 python -m http.server 4173
 ```
 
-Abra `http://localh
-ost:4173/`.
+Abra `http://localhost:4173/`.
 
 ## Deploy automático (GitHub Pages)
 
