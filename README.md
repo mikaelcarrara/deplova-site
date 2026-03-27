@@ -33,7 +33,6 @@ Website institucional da Detraxis com múltiplas páginas HTML, design system em
 │  │  ├─ hero.js
 │  │  ├─ form.js
 │  │  ├─ cookie-consent.js
-│  │  └─ spotlight.js
 │  └─ img/                       # Assets estáticos
 ├─ *.html                        # Páginas principais do site
 ├─ package.json
