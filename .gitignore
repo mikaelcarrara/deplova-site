@@ -82,32 +82,6 @@ Session.vim
 .aide/
 aide.json
 
-# --- Node.js / Web Development ---
-node_modules/
-.cache/
-dist/
-jspm_packages/
-.npm
-.eslintcache
-.stylelintcache
-.node_repl_history
-*velocity.log*
-yarn.lock
-pnpm-lock.yaml
-bun.lockb
-
-# Build & Dist
-dist/
-build/
-out/
-.next/
-.nuxt/
-.cache/
-.parcel-cache/
-.turbo/
-.vercel/
-.output/
-
 # Logs
 logs
 *.log
@@ -168,3 +142,4 @@ pip-delete-this-directory.txt
 *.temp
 temp/
 tmp/
+node_modules/
