@@ -11,7 +11,15 @@
   const submitInner = submitButton ? submitButton.querySelector('.btn__inner') : null;
   const planCards = Array.from(form.querySelectorAll('[data-plan-card]'));
   const planInput = () => form.querySelector('input[name="plan"]:checked');
-  const submitEndpoint = form.dataset.submitEndpoint || '';
+  const qsId = new URLSearchParams(window.location.search).get('form_id');
+  const metaId = document.querySelector('meta[name="formspree-id"]')?.getAttribute('content') || '';
+  const submitEndpoint = (() => {
+    const raw = form.dataset.submitEndpoint || '';
+    if (raw && !raw.includes('SEU_FORM_ID')) return raw;
+    if (qsId) return `https://formspree.io/f/${qsId}`;
+    if (metaId && !metaId.includes('SEU_FORM_ID')) return `https://formspree.io/f/${metaId}`;
+    return '';
+  })();
 
   let activeTrigger = null;
 
